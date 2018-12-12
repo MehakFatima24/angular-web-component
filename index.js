@@ -21,23 +21,13 @@ $( document ).ready(function() {
     const SugarApi = Ventana.getInstance({
         serverUrl: 'http://192.168.3.143/lkw_walter/sugar/build_28112018/ent/sugarcrm/rest/v11_1',
         keyValueStore: { set: settoken, get: gettoken, cut: cuttoken},
-        platform: 'portal',
+        platform: 'base',
         clientID: 'sugar',
     });
-    var callbacks = {
-    success: function(data) {
-      console.log(data)
-    },
-    error: function(error) {
-      console.log(error)
-    },
-    complete: function() {
-    },
-    };
 
-    var params = {id: '3d5f7c1c-fdf6-11e8-8a1b-000000000000'};
+    SugarApi.login({username : "admin", password : "asdf"});
 
-    var records = SugarApi.records('read','lkw_Firma');
+    SugarApi.records('read','lkw_Firma');
 
 
 });
